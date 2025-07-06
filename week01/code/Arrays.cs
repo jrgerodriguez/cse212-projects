@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public static class Arrays
 {
     /// <summary>
@@ -13,7 +15,17 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // 1. I create a new array so it can be returned
+        double[] result = new double[length];
+
+        // 2. I start a loop that will get the multiples of number until and be included in the new array until it reached a length equal to the parameter length
+        for (var i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        // 3. The array is returned.
+        return result; 
     }
 
     /// <summary>
@@ -29,5 +41,17 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // 1. I create two arrays, the first one to hold the firstt numbers in the final array and the other one to hold the last ones
+        // 2. I use the GetRange method to get both parts, array1 will be the first part of the resulting array.
+        List<int> array1 = data.GetRange(data.Count - amount, amount);
+        List<int> array2 = data.GetRange(0, data.Count-amount);
+
+        // 3. Since we're not returning anything I just clear the given data list.
+        data.Clear();
+
+        // 4. Finally I put the two arrays togethers so they become one.
+        data.AddRange(array1);
+        data.AddRange(array2);
     }
 }

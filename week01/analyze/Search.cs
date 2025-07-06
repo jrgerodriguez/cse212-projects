@@ -32,7 +32,7 @@ public static class Search {
     /// </summary>
     /// <param name="data">The array of numbers</param>
     /// <param name="target">The number we're looking for</param>
-    private static int SearchSorted1(int[] data, int target) {
+    private static int SearchSorted1(int[] data, int target) { //O(n)
         var count = 0;
         foreach (var item in data) {
             count += 1;
@@ -51,15 +51,15 @@ public static class Search {
     /// <param name="target">The number we're looking for</param>
     /// <param name="start">The index of the starting section of the data to look in</param>
     /// <param name="end">The index of the ending section of the data to look in</param>
-    private static int SearchSorted2(int[] data, int target, int start, int end) {
+    private static int SearchSorted2(int[] data, int target, int start, int end) { // O(log n)
         if (end < start)
-            return 1; // All done
+            return 1; // All done 
         var middle = (end + start) / 2;
         if (data[middle] == target)
-            return 1; // Found it
+            return 1; // Found it 
         if (data[middle] < target) // Search in the upper half after index middle
-            return 1 + SearchSorted2(data, target, middle + 1, end);
+            return 1 + SearchSorted2(data, target, middle + 1, end); 
         // Search in the lower half before index middle
-        return 1 + SearchSorted2(data, target, start, middle - 1);
+        return 1 + SearchSorted2(data, target, start, middle - 1); 
     }
 }
