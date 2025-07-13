@@ -14,6 +14,13 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 1");
+        var service = new CustomerService(4);
+        service.AddNewCustomer();
+        service.AddNewCustomer();
+        service.AddNewCustomer();
+        service.AddNewCustomer();
+        service.AddNewCustomer();
+        Console.WriteLine($"Service Queue: {service}");
 
         // Defect(s) Found: 
 
@@ -25,7 +32,7 @@ public class CustomerService {
         Console.WriteLine("Test 2");
 
         // Defect(s) Found: 
-
+        
         Console.WriteLine("=================");
 
         // Add more Test Cases As Needed Below
@@ -88,8 +95,15 @@ public class CustomerService {
     /// Dequeue the next customer and display the information.
     /// </summary>
     private void ServeCustomer() {
-        _queue.RemoveAt(0);
+
+        if (_queue.Count <= 0)
+        {
+            Console.WriteLine("The queue is empty.");
+            return;
+        }
+
         var customer = _queue[0];
+        _queue.RemoveAt(0);
         Console.WriteLine(customer);
     }
 

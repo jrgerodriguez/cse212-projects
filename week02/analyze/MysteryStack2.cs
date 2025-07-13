@@ -1,19 +1,19 @@
 ﻿public static class MysteryStack2 {
-    private static bool IsFloat(string text) {
+    private static bool IsFloat(string text) { 
         return float.TryParse(text, out _);
     }
 
-    public static float Run(string text) {
-        var stack = new Stack<float>();
-        foreach (var item in text.Split(' ')) {
-            if (item == "+" || item == "-" || item == "*" || item == "/") {
-                if (stack.Count < 2)
-                    throw new ApplicationException("Invalid Case 1!");
+    public static float Run(string text) { 
+        var stack = new Stack<float>(); 
+        foreach (var item in text.Split(' ')) { 
+            if (item == "+" || item == "-" || item == "*" || item == "/") { 
+                if (stack.Count < 2) 
+                    throw new ApplicationException("Invalid Case 1!"); 
 
-                var op2 = stack.Pop();
-                var op1 = stack.Pop();
-                float res;
-                if (item == "+") {
+                var op2 = stack.Pop(); //7
+                var op1 = stack.Pop(); //3
+                float res; 
+                if (item == "+") { 
                     res = op1 + op2;
                 }
                 else if (item == "-") {
