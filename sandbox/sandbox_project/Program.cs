@@ -107,15 +107,36 @@ using System.Collections.Generic;
 // Console.WriteLine("Final contents:");
 // Console.WriteLine(String.Join(", ", queue.ToArray()));
 
-var set1 = new HashSet<int>{1,2,3,4,5};
-var set2 = new HashSet<int>{4,5,6,7,8};
+// var set1 = new HashSet<int>{1,2,3,4,5};
+// var set2 = new HashSet<int>{4,5,6,7,8};
 
-foreach (var e in set2)
-{
-    set1.Add(e);
-}
+// foreach (var e in set2)
+// {
+//     set1.Add(e);
+// }
 
-foreach (var item in set1)
+// foreach (var item in set1)
+// {
+//     Console.WriteLine(item);
+// }
+
+//WEEK 5 RECURSION
+
+
+using System;
+using System.Reflection.Metadata.Ecma335;
+
+public class Program
 {
-    Console.WriteLine(item);
+    public static int sumFromTo(int limit)
+    {
+        return limit == 1 ? 1 : limit + sumFromTo(limit - 1);
+    }
+
+    
+    public static void Main(string[] args)
+    {
+        Console.WriteLine(sumFromTo(5));
+    }
+
 }
